@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+header {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+  color: #fff;
+}
+
+.main-banner {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.main-banner img {
+  max-width: 100%;
+}
+
+.main-banner h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.main-banner p {
+  font-size: 18px;
+}
+
+.services {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.service {
+  text-align: center;
+  flex: 1;
+  margin: 10px;
+}
+
+.sustainability,
+.financial-management {
+  text-align: center;
+  margin: 20px 0;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.quote-box {
+  background-color: #333; /* ou qualquer cor que você deseje para os quadrados */
+  color: #ffffff; /* Certifique-se de que o texto seja visível */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  width: 180px;
+}
+
+.quote-value {
+  color: green; /* Cor verde para os valores */
+}
