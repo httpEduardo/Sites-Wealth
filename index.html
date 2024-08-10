@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site 01</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Raleway', sans-serif;
+        background-color: #ffffff; /* Cor de fundo ajustada para branco puro */
+        color: #333333;
+        padding: 20px;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff; /* Cor de fundo ajustada para branco puro */
+        padding: 10px 20px;
+      }
+      .logo {
+        height: 50px;
+      }
+      .instagram-icon {
+        height: 20px;
+        cursor: pointer;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      nav ul li {
+        display: inline;
+        margin: 0 10px;
+        font-weight: bold;
+      }
+      .quote-container {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+      }
+      .quote {
+        padding: 10px;
+        background-color: #ffffff; /* Cor de fundo ajustada para branco puro */
+        color: black;
+        width: 180px;
+        text-align: center;
+        border-radius: 5px;
+        border: none;
+      }
+      .quote h2 {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+        color: #333333;
+      }
+      .main-banner {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .banner-text {
+        color: #333333;
+        font-weight: 200;
+      }
+      .services {
+        margin: 20px 0;
+        padding: 20px;
+        background-color: #ffffff; /* Cor de fundo ajustada para branco puro */
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        color: #333333;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+        text-align: center;
+      }
+      .branding {
+        display: none;
+        text-align: center;
+      }
+      .branding.active {
+        display: block;
+        margin-bottom: 20px;
+      }
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        background-color: #ffffff; /* Cor de fundo ajustada para branco puro */
+        padding: 20px;
+      }
+      .quote-box {
+        background-color: #ffffff; /* Cor de fundo ajustada para branco puro */
+        color: black;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+        width: 180px;
+        border: none;
+      }
+      .quote-value {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="2024-08-10_05-41.png" alt="Logo" class="logo" />
+      <a href="https://www.instagram.com/918wealth/" target="_blank">
+        <img src="instagram_2111463.png" alt="Instagram" class="instagram-icon" />
+      </a>
+    </header>
+
+    <section class="quote-container">
+      <div class="quote quote-box">
+        <h2>S&P 500</h2>
+        <p id="sp500" class="quote-value">Carregando...</p>
+      </div>
+      <div class="quote quote-box">
+        <h2>Dow Jones</h2>
+        <p id="dowjones" class="quote-value">Carregando...</p>
+      </div>
+      <div class="quote quote-box">
+        <h2>Nasdaq</h2>
+        <p id="nasdaq" class="quote-value">Carregando...</p>
+      </div>
+      <div class="quote quote-box">
+        <h2>Bitcoin</h2>
+        <p id="bitcoin" class="quote-value">Carregando...</p>
+      </div>
+    </section>
+
+    <section class="main-banner">
+      <img src="site_01_image_1.png" alt="Main Image" />
+      <h2 class="banner-text">Foreseeing the Technological Vanguard</h2>
+      <p class="banner-text">
+        We excel in identifying and leveraging market opportunities where our
+        profound expertise allows us to acquire, restructure, and cultivate
+        growth.
+      </p>
+    </section>
+
+    <section class="services">
+      <!-- Branding 1 -->
+      <div class="branding active" id="branding1">
+        <img src="2024-08-10_05-41_1.png" alt="Logo 918 Intelligence" class="branding-logo" />
+      </div>
+      <div class="branding" id="text1">
+        <p>Cybersecurity Solutions, Advanced Threat Intelligence, Comprehensive Vulnerability Assessment, Incident Response & Forensics.</p>
+      </div>
+
+      <!-- Branding 2 -->
+      <div class="branding active" id="branding2">
+        <img src="2024-08-10_05-42.png" alt="Logo 992 Networks" class="branding-logo" />
+      </div>
+      <div class="branding" id="text2">
+        <p>SaaS Platforms, Tailored Enterprise Applications, Advanced AI & ML Solutions, Intelligent Data Analytics.</p>
+      </div>
+
+      <!-- Branding 3 -->
+      <div class="branding active" id="branding3">
+        <img src="2024-08-10_05-42_1.png" alt="Logo AXS Summit" class="branding-logo" />
+      </div>
+      <div class="branding" id="text3">
+        <p>M&A Consulting | Global Business Strategy | Tax Advisory | Customized Offshore Entities & Trusts.</p>
+      </div>
+    </section>
+
+    <section class="sustainability">
+      <h2>Sustainability. It's in the details.</h2>
+      <p>
+        Generating sustainable value is a strategy that aligns economic growth
+        with environmental and social responsibility, focusing on long-term
+        wealth creation.
+      </p>
+    </section>
+
+    <section class="financial-management">
+      <h2>Financial Management and Cash Flow</h2>
+      <p>
+        Financial management is aimed at optimizing cash flow and balancing
+        capital for operations and investments.
+      </p>
+    </section>
+
+    <footer>
+      <p>Email: info@918wealth.com</p>
+      <p>100 SE 2nd St, Miami, Florida.</p>
+    </footer>
+
+    <script>
+      const elements = [
+        { logo: "branding1", text: "text1" },
+        { logo: "branding2", text: "text2" },
+        { logo: "branding3", text: "text3" },
+      ];
+
+      function toggleElements(element) {
+        const logoElement = document.getElementById(element.logo);
+        const textElement = document.getElementById(element.text);
+
+        logoElement.classList.toggle('active');
+        textElement.classList.toggle('active');
+      }
+
+      function startSequence() {
+        elements.forEach((element, index) => {
+          setTimeout(() => {
+            toggleElements(element);
+            setTimeout(() => {
+              toggleElements(element);
+            }, 3000); // Tempo de exibição do texto antes de voltar para a logo
+          }, index * 6000); // Tempo de espera entre as animações de cada elemento
+        });
+      }
+
+      function loopSequence() {
+        startSequence();
+        setInterval(startSequence, elements.length * 6000); // Reinicia a sequência após todos os elementos passarem pela animação
+      }
+
+      window.onload = loopSequence; // Inicia a sequência automaticamente ao carregar a página
+    </script>
+  </body>
+</html>
