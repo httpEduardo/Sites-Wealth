@@ -83,6 +83,11 @@ footer {
   width: 180px;
 }
 
+/* Adiciona negrito aos títulos dentro de .quote-box */
+.quote-box h2 {
+  font-weight: bold;
+}
+
 .quote-value {
   color: green; /* Cor verde para os valores */
 }

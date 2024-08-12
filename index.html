@@ -43,7 +43,7 @@
     }
     .quote h2 {
       font-family: 'Raleway', sans-serif;
-      font-weight: 200;
+      font-weight: bold; /* Negrito */
       color: #333333;
     }
     .main-banner {
@@ -95,11 +95,21 @@
     .services p {
       font-weight: 600; /* Negrito suave */
     }
-    /* Ajuste de largura e espaçamento de linha */
-    .sustainability p, .financial-management p {
-      max-width: 100%;
-      white-space: normal;
-      text-align: justify;
+    /* Centralizar verticalmente as seções */
+    .sustainability, .financial-management {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Centraliza verticalmente */
+      align-items: center; /* Centraliza horizontalmente */
+      min-height: 20vh; /* Reduz ainda mais a altura mínima para diminuir o espaço entre as seções */
+      padding: 20px 0; /* Mantém o padding */
+      text-align: center;
+    }
+    /* Títulos maiores e em negrito */
+    .sustainability h2, .financial-management h2 {
+      font-size: 2rem; /* Aumenta o tamanho da fonte */
+      font-weight: bold; /* Negrito */
+      margin-bottom: 10px; /* Adiciona um pequeno espaço abaixo do título */
     }
     /* Mantém o negrito normal para os textos específicos */
     .bold-text {
@@ -117,19 +127,19 @@
 
   <section class="quote-container">
     <div class="quote quote-box">
-      <h2>S&P 500</h2>
+      <h2 class="bold-text">S&P 500</h2>
       <p id="sp500" class="quote-value">Carregando...</p>
     </div>
     <div class="quote quote-box">
-      <h2>Dow Jones</h2>
+      <h2 class="bold-text">Dow Jones</h2>
       <p id="dowjones" class="quote-value">Carregando...</p>
     </div>
     <div class="quote quote-box">
-      <h2>Nasdaq</h2>
+      <h2 class="bold-text">Nasdaq</h2>
       <p id="nasdaq" class="quote-value">Carregando...</p>
     </div>
     <div class="quote quote-box">
-      <h2>Bitcoin</h2>
+      <h2 class="bold-text">Bitcoin</h2>
       <p id="bitcoin" class="quote-value">Carregando...</p>
     </div>
   </section>
