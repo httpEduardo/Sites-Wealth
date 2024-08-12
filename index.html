@@ -6,9 +6,7 @@
   <title>918 Wealth</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
-  <!-- Inclua o favicon aqui -->
   <link rel="icon" href="2024-08-10_05-41.png" type="image/png" />
-  <!-- Fim da inclusão do favicon -->
   <style>
     body {
       font-family: 'Raleway', sans-serif;
@@ -49,9 +47,25 @@
       font-weight: bold; /* Negrito */
       color: #333333;
     }
+    .quote-value {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .quote-value .arrow {
+      margin-left: 5px;
+      font-size: 20px;
+    }
+    .up-arrow {
+      color: green;
+    }
+    .down-arrow {
+      color: red;
+    }
     .main-banner {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 50px; /* Aumenta o espaço acima do texto */
     }
     .banner-text {
       color: #333333;
@@ -91,9 +105,6 @@
       width: 180px;
       border: none;
     }
-    .quote-value {
-      color: green;
-    }
     /* Estilo para texto em negrito suave */
     .services p {
       font-weight: 600; /* Negrito suave */
@@ -131,24 +142,31 @@
   <section class="quote-container">
     <div class="quote quote-box">
       <h2 class="bold-text">S&P 500</h2>
-      <p id="sp500" class="quote-value">Carregando...</p>
+      <p id="sp500" class="quote-value">
+        $4,299.70 <span class="arrow down-arrow">▼</span>
+      </p>
     </div>
     <div class="quote quote-box">
       <h2 class="bold-text">Dow Jones</h2>
-      <p id="dowjones" class="quote-value">Carregando...</p>
+      <p id="dowjones" class="quote-value">
+        $39,103.05 <span class="arrow down-arrow">▼</span>
+      </p>
     </div>
     <div class="quote quote-box">
       <h2 class="bold-text">Nasdaq</h2>
-      <p id="nasdaq" class="quote-value">Carregando...</p>
+      <p id="nasdaq" class="quote-value">
+        $16,416.40 <span class="arrow up-arrow">▲</span>
+      </p>
     </div>
     <div class="quote quote-box">
       <h2 class="bold-text">Bitcoin</h2>
-      <p id="bitcoin" class="quote-value">Carregando...</p>
+      <p id="bitcoin" class="quote-value">
+        $28,793.00 <span class="arrow up-arrow">▲</span>
+      </p>
     </div>
   </section>
 
   <section class="main-banner">
-    <img src="site_01_image_1.png" alt="Main Image" style="width: 800px; height: 650px;" />
     <h2 class="banner-text">Foreseeing the Technological Vanguard</h2>
     <p class="banner-text">
       We excel in identifying and leveraging market opportunities where our
@@ -188,8 +206,8 @@
     <p class="bold-text">
       Generating sustainable value is a strategy that aligns economic growth with environmental
       and social responsibility, focusing on long-term wealth creation. By integrating sustainability
-      into our investment practices, we ensure that decisions are aligned with corporate and social
-      responsibilities. The benefits include strengthening communities through responsible
+      into our investment practices, we ensure that decisions are aligned with corporate e social
+      responsabilidades. The benefits include strengthening communities through responsible
       investments and developing resilient investment portfolios. This approach not only promotes
       financial success but also contributes to a more equitable and aware global market.
     </p>
@@ -218,10 +236,10 @@
   <script>
     const apiKey = '152K2A8VU09Z76CU';
     let lastQuotes = {
-      sp500: '$4,299.70',
-      dowjones: '$39,103.05',
-      nasdaq: '$16,416.40',
-      bitcoin: '$28,793.00',
+      sp500: { value: '$4,299.70', change: 'down' },
+      dowjones: { value: '$39,103.05', change: 'down' },
+      nasdaq: { value: '$16,416.40', change: 'up' },
+      bitcoin: { value: '$59,120.90', change: 'up' },
     };
 
     async function fetchQuote(symbol, elementId, fallbackValue) {
@@ -230,21 +248,29 @@
           `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`
         );
         const data = await response.json();
+        console.log(data); // Adiciona um log para verificar os dados recebidos
         if (data['Global Quote'] && data['Global Quote']['05. price']) {
-          const price = data['Global Quote']['05. price'];
-          document.getElementById(elementId).innerText = `$${price}`;
-          lastQuotes[elementId] = `$${price}`; // Atualiza o cache local com a nova cotação
+          const price = parseFloat(data['Global Quote']['05. price']).toFixed(2);
+          const changePercent = parseFloat(data['Global Quote']['10. change percent']);
+          const change = changePercent < 0 ? 'down' : 'up';
+          lastQuotes[elementId] = { value: `$${price}`, change };
+          updateQuote(elementId, lastQuotes[elementId]);
         } else {
           console.error(
             `Erro ao buscar dados para o símbolo: ${symbol}`,
             data
           );
-          document.getElementById(elementId).innerText = fallbackValue;
+          updateQuote(elementId, fallbackValue);
         }
       } catch (error) {
         console.error('Erro ao buscar a cotação:', error);
-        document.getElementById(elementId).innerText = fallbackValue;
+        updateQuote(elementId, fallbackValue);
       }
+    }
+
+    function updateQuote(elementId, quoteData) {
+      const element = document.getElementById(elementId);
+      element.innerHTML = `${quoteData.value} <span class="arrow ${quoteData.change === 'down' ? 'down-arrow' : 'up-arrow'}">${quoteData.change === 'down' ? '▼' : '▲'}</span>`;
     }
 
     function fetchQuotes() {
@@ -256,39 +282,6 @@
 
     fetchQuotes();
     setInterval(fetchQuotes, 60000); // Atualiza a cada 60 segundos
-
-    const elements = [
-      { logo: "branding1", text: "text1" },
-      { logo: "branding2", text: "text2" },
-      { logo: "branding3", text: "text3" },
-    ];
-
-    function toggleElements(index) {
-      const currentElement = elements[index];
-      const logoElement = document.getElementById(currentElement.logo);
-      const textElement = document.getElementById(currentElement.text);
-
-      // Toggle current element
-      logoElement.classList.toggle('active');
-      textElement.classList.toggle('active');
-
-      // Toggle back after 3 seconds
-      setTimeout(() => {
-        logoElement.classList.toggle('active');
-        textElement.classList.toggle('active');
-
-        // Move to the next element after another 3 seconds
-        setTimeout(() => {
-          toggleElements((index + 1) % elements.length);
-        }, 3000);
-      }, 3000);
-    }
-
-    function startSequence() {
-      toggleElements(0); // Start with the first element
-    }
-
-    window.onload = startSequence; // Inicia a sequência automaticamente ao carregar a página
   </script>
 </body>
 </html>
